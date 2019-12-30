@@ -1,6 +1,7 @@
-# TaskManager
-A basic task manager with CRUD services, user authenication build with Node.js. The data is managed with mongoDB and Mongoose. The app is integrated with user authetication.
- 
+# MultiTask
+A basic task manager web REST API with CRUD services on task and user data stored in MongoDB. The API is built with Express.js and runs on Node.js. The task and user data is managed with MongoDB and Mongoose.
+The app is deployed on Heroku, and the database is hosted in the cloud with AWS using [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+
 ## MongoDB Local Setup
 1. Download [MongoDB](https://www.mongodb.com/download-center/community) to your user directory
 2. Create new folder called "mongodb-data" in the same directory to store the data
@@ -15,11 +16,38 @@ $ <PATH>/mongodb/bin/mongod --dbpath=<PATH>/mongodb-data
 ```
 
 ## Run Project Locally
+1. Install node modules
 ```
 $ npm install
-$ npm run start
 ```
-Or run the project with nodemon
+2. Sign up and get [EmailAPI key](https://app.sendgrid.com/guide/integrate/langs/nodejs) from [SendGrid](https://signup.sendgrid.com/)
+3. Create a new folder "config" and add a file named "dev.env" into the folder
+    .
+    ├── config                    
+    │   ├── dev.env                 # Store environment variables
+    └── ...
+4. Paste below code to dev.env, changing the values of SendGrid API key, the jwt secret key, and email. The jwt key can be set to any random string. The email will be used as the sender of the welcome and cancellation email.
+```
+PORT=3000
+SENDGRID_API_KEY=<Your email API key from step #2>
+JWT_SECRET=<Your JWT secret key>
+MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api
+EMAIL=<Your email address>
+```
+5. Run the app. Make sure MongoDB is up and running as well.
 ```
 $ npm run dev
 ```
+
+## Run Jest Unit Tests
+1. Create a new file `test.env` in the `/config` folder. THe content would be the same as the content in `dev.env` but with one change for the variable `MONGODB_URL` to create a separate test database.
+```
+MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api-test
+```
+2. Run tests in the `/tests` folder with `$ npm test`
+
+## Test app with Postman in local environment
+
+
+## Manage data with MongoDB GUI
+1. Download MongoDB Compass
