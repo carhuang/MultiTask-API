@@ -30,15 +30,7 @@ Port: 27017
 $ npm install
 ```
 2. Sign up and get [EmailAPI key](https://app.sendgrid.com/guide/integrate/langs/nodejs) from [SendGrid](https://signup.sendgrid.com/)
-3. Create a new folder "config" and add a file named "dev.env" into the folder
-
-
-    .
-    ├── config                    
-    │   ├── dev.env                 # Store environment variables
-    └── ...
-
-
+3. Create a new folder `/config` in the root folder and add a new file named `dev.env` into the folder. The folder is going to be where the environment variables are stored.
 4. Paste below code to dev.env, changing the values of SendGrid API key, the jwt secret key, and email. The jwt key can be set to any random string. The email will be used as the sender of the welcome and cancellation email.
 ```
 PORT=3000
@@ -58,7 +50,11 @@ $ npm run dev
 ```
 MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api-test
 ```
-2. Run tests in the `/tests` folder with `$ npm test`
+2. Run tests in the `/tests` folder
+```
+$ npm test
+```
 
 
-## Test app with Postman in local environment
+## Test app with Postman
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a1ed895918d6bb7f0687)
