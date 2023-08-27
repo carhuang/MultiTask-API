@@ -3,25 +3,32 @@ A basic task manager web REST API providing CRUD services on task and user data 
 The app is deployed on Heroku, and the database is hosted in the cloud with AWS using [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Check out the [**API Documentation**](./doc/API.md) for the features of MultiTask. 
 
 
-## MongoDB Local Setup
-1. Download [MongoDB](https://www.mongodb.com/download-center/community) to your user directory
-2. Create new folder called "mongodb-data" in the same directory to store the data
-3. Find your PATH name to the mongodb location
+## MongoDB Local Setup (for Linux and macOS)
+1. Download [MongoDB Community Server](https://www.mongodb.com/try/download/community). Select the current MongoDB version, your host operating system, and `.tgz` package.
+2. Extract the files from the downloaded archieve to your user home directory and rename the MongoDB folder `mongodb`.
+3. Create a new folder called `mongodb-data` in the same directory to store the data.
+4. Find your PATH name to the mongodb location, which is your user home directory:
 ```
-$ cd ~
-$ pwd
+$ cd ~; pwd
 ```
-4. Start up MongoDB
+1. Start up MongoDB
 ```
 $ <PATH>/mongodb/bin/mongod --dbpath=<PATH>/mongodb-data
 ```
 
 ## Manage data with MongoDB GUI
-1. Download [MongoDB Compass](https://www.mongodb.com/products/compass) Community Edition
+1. Download [MongoDB Compass](https://www.mongodb.com/products/compass) Community Edition.
 2. Create a new connection with
 ```
 Hostname: localhost
 Port: 27017
+```
+
+## Manage data with MongoDB Shell
+1. Install [mongosh](https://www.mongodb.com/docs/mongodb-shell/install/).
+2. Connect to a MongoDB deployment running on localhost with default port 27017 with
+```
+$ mongosh
 ```
 
 ## Run Project Locally
