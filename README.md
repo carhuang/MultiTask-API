@@ -30,6 +30,14 @@ Port: 27017
 ```
 $ mongosh
 ```
+3. Common commands for testing this project:
+   1. List all databases: `$ show dbs`
+   2. Switch the database: `$ use <database>`
+   3. Show all collections in the current database: `$ show collections`
+   4. Retrieve all documents in the specified collection: `$ db.<collection>.find()`
+   5. Delete all documents in the specified collection: ` $ db.<collection>.deleteMany({})`
+   6. Delete one document in the collection with the specified condition: `db.<collection>.deleteOne( { name: "Brad Pitt" } )` 
+
 
 ## Run Project Locally
 1. Install node modules
@@ -65,6 +73,10 @@ EMAIL=<Your email address>
 ```
 $ npm test
 ```
+
+## Test app with REST Client
+If you are using VSCode, you can install the REST Client extension to do manual testing. The `.http` files in the test folder contains some tests for the API.
+Read the REST Client [user guide](https://github.com/Huachao/vscode-restclient) for more information on test configurations.
 
 
 ## Test app with Postman

@@ -1,0 +1,37 @@
+@hostname = localhost
+@port = 8000
+@url = {{hostname}}:{{port}}
+
+### Create user
+# @name create
+POST http://{{url}}/users HTTP/1.1
+content-type: application/json
+
+# use your real email to test for welcome mail sending
+{
+    "name": "Dou Mao",
+	"email": "holiday@gmail.com",
+	"password": "rainbow543",
+	"age": 20
+}
+
+### Login
+# @name login
+POST http://{{url}}/users/login HTTP/1.1
+content-type: application/json
+
+{
+	"email": "holiday@gmail.com",
+	"password": "rainbow543"
+}
+
+### Logout user
+@authToken = {{login.response.body.$.token}}
+POST http://{{url}}/users/logout HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+### Delete user
+@token = {{create.response.body.$.token}}
+DELETE http://{{url}}/users/me
+authorization: Bearer {{token}}
