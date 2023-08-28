@@ -26,7 +26,7 @@ Port: 27017
 
 ## Manage data with MongoDB Shell
 1. Install [mongosh](https://www.mongodb.com/docs/mongodb-shell/install/).
-2. Connect to a MongoDB deployment running on localhost with default port 27017 with
+2. Connect to a MongoDB deployment running on localhost with default port 27017 with:
 ```
 $ mongosh
 ```
@@ -34,11 +34,11 @@ $ mongosh
 ## Run Project Locally
 1. Install node modules
 ```
-$ npm install
+$ npm ci
 ```
 2. Sign up and get [EmailAPI key](https://app.sendgrid.com/guide/integrate/langs/nodejs) from [SendGrid](https://signup.sendgrid.com/)
-3. Create a new folder `/config` in the root folder and add a new file named `dev.env` into the folder. The folder is going to be where the environment variables are stored.
-4. Paste below code to dev.env, changing the values of SendGrid API key, the jwt secret key, and email. The jwt key can be set to any random string. The email will be used as the sender of the welcome and cancellation email.
+3. Create a new folder `/config` in the root folder and add a new file named `dev.env` into the folder. This folder is going to store the environment variables.
+4. Paste below code to `dev.env`, changing the values of SendGrid API key, the jwt secret key, and email. The jwt key can be set to any random string. The email will be used as the sender of the welcome and cancellation emails.
 ```
 PORT=3000
 SENDGRID_API_KEY=<Your email API key from step #2>
@@ -53,9 +53,13 @@ $ npm run dev
 
 
 ## Run Jest Unit Tests
-1. Create a new file `test.env` in the `/config` folder. THe content would be the same as the content in `dev.env` but with one change for the variable `MONGODB_URL` to create a separate test database.
+1. Create a new file `test.env` in the `/config` folder. The content would be the same as the content in `dev.env` but with one change for the variable `MONGODB_URL` to create a separate test database.
 ```
+PORT=3000
+SENDGRID_API_KEY=<Your email API key from step #2>
+JWT_SECRET=<Your JWT secret key>
 MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api-test
+EMAIL=<Your email address>
 ```
 2. Run tests in the `/tests` folder
 ```
