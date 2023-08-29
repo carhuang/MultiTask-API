@@ -44,9 +44,13 @@ $ mongosh
 ```
 $ npm install
 ```
-2. Sign up and get [EmailAPI key](https://app.sendgrid.com/guide/integrate/langs/nodejs) from [SendGrid](https://signup.sendgrid.com/)
-3. Create a new folder `/config` in the root folder and add a new file named `dev.env` into the folder. This folder is going to store the environment variables.
-4. Paste below code to `dev.env`, changing the values of SendGrid API key, the jwt secret key, and email. The jwt key can be set to any random string. The email will be used as the sender of the welcome and cancellation emails.
+2. Install `nodemon` globally
+```
+$ npm install nodemon -g
+```
+3. Sign up and get [EmailAPI key](https://app.sendgrid.com/guide/integrate/langs/nodejs) from [SendGrid](https://signup.sendgrid.com/)
+4. Create a new folder `/config` in the root folder and add a new file named `dev.env` into the folder. This folder is going to store the environment variables.
+5. Paste below code to `dev.env`, changing the values of SendGrid API key, the jwt secret key, and email. The jwt key can be set to any random string. The email will be used as the sender of the welcome and cancellation emails.
 ```
 PORT=3000
 SENDGRID_API_KEY=<Your email API key from step #2>
@@ -54,7 +58,7 @@ JWT_SECRET=<Your JWT secret key>
 MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api
 EMAIL=<Your email address>
 ```
-5. Run the app. Make sure MongoDB is up and running as well.
+6. Run the app. Make sure MongoDB is up and running as well.
 ```
 $ npm run dev
 ```
@@ -75,7 +79,7 @@ $ npm test
 ```
 
 ## Test app with REST Client
-If you are using VSCode, you can install the REST Client extension to do manual testing. The `.http` files in the test folder contains some tests for the API.
+If you are using VSCode, you can install the REST Client extension to do manual testing. The `manual.http` file in the test folder contains some tests for the API.
 Read the REST Client [user guide](https://github.com/Huachao/vscode-restclient) for more information on test configurations.
 
 
