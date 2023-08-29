@@ -3,7 +3,7 @@ All API access is over HTTPS from from ~~`https://carly-task-manager.herokuapp.c
 
 ## Users
 <details>
- <summary><h3><code>POST</code> <code><b>/users</b></code> <code>(Signup/create a new user)</code></h3></summary>
+ <summary>👨 <code>POST</code> <code><b>/users</b></code> <code>(Signup/create a new user)</code></summary>
 
 #### Authentication
 
@@ -56,7 +56,7 @@ not required
 </details>
 
 <details>
- <summary>👉 <code>POST</code> <code><b>/users/login</b></code> <code>(Login user)</code></summary>
+ <summary>👨 <code>POST</code> <code><b>/users/login</b></code> <code>(Login user)</code></summary>
 
 #### Authentication
 
@@ -105,7 +105,7 @@ not required
 </details>
 
 <details>
- <summary>👉 <code>POST</code> <code><b>/users/logout</b></code> <code>(Log out of user's current session)</code></summary>
+ <summary>👨 <code>POST</code> <code><b>/users/logout</b></code> <code>(Log out of user's current session)</code></summary>
 
 #### Authentication
 
@@ -130,7 +130,7 @@ none
 </details>
 
 <details>
- <summary><code>POST</code> <code><b>/users/logoutAll</b></code> <code>(Log out of all user's sessions)</code></summary>
+ <summary>👨 <code>POST</code> <code><b>/users/logoutAll</b></code> <code>(Log out of all user's sessions)</code></summary>
 
 #### Authentication
 
@@ -155,7 +155,7 @@ none
 </details>
 
 <details>
- <summary><code>GET</code> <code><b>/users/me</b></code> <code>(Get user account information)</code></summary>
+ <summary>👨 <code>GET</code> <code><b>/users/me</b></code> <code>(Get user account information)</code></summary>
 
 #### Authentication
 
@@ -190,7 +190,7 @@ none
 </details>
 
 <details>
- <summary><code>PATCH</code> <code><b>/users/me</b></code> <code>(Edit user information)</code></summary>
+ <summary>👨 <code>PATCH</code> <code><b>/users/me</b></code> <code>(Edit user information)</code></summary>
 
 #### Authentication
 
@@ -241,7 +241,7 @@ JWT of the user's current session
 </details>
 
 <details>
- <summary><code>DELETE</code> <code><b>/users/me</b></code> <code>(Delete user account)</code></summary>
+ <summary>👨 <code>DELETE</code> <code><b>/users/me</b></code> <code>(Delete user account)</code></summary>
 
 #### Authentication
 
@@ -278,7 +278,7 @@ none
 </details>
 
 <details>
- <summary><code>POST</code> <code><b>/users/me/avatar</b></code> <code>(Upload user profile picture)</code></summary>
+ <summary>👨 <code>POST</code> <code><b>/users/me/avatar</b></code> <code>(Upload user profile picture)</code></summary>
 
 #### Authentication
 
@@ -305,7 +305,7 @@ JWT of the user's current session
 </details>
 
 <details>
- <summary><code>DELETE</code> <code><b>/users/me/avatar</b></code> <code>(Delete user profile picture)</code></summary>
+ <summary>👨 <code>DELETE</code> <code><b>/users/me/avatar</b></code> <code>(Delete user profile picture)</code></summary>
 
 #### Authentication
 
