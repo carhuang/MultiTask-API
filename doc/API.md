@@ -5,11 +5,11 @@ All API access is over HTTPS from from `https://carly-task-manager.herokuapp.com
 <details>
  <summary><code>POST</code> <code><b>/users</b></code> <code>(Signup/create a new user)</code></summary>
 
-##### Authentication
+#### Authentication
 
 not required
 
-##### Parameters
+#### Parameters
 
 | name       | type     | data type | description          |
 |------------|----------|-----------|----------------------|
@@ -18,7 +18,7 @@ not required
 | `password` | required | string    | Password of the user |
 | `age`      | optional | int       | Age of the user      |
 
-##### Success Response
+#### Success Response
 
 - **Code**: `201 Created`
 - **Example Response Body**
@@ -38,11 +38,11 @@ not required
   ```
 - **Extra actions**: Triggers SendGrid to send a welcome email to the new user and adds a new JWT to the user's `tokens` data.
 
-##### Error Response
+#### Error Response
 
 - **Code**: `400 Bad Request`
 
-##### Example Request Body
+#### Example Request Body
 
 ```json
 {
@@ -58,18 +58,18 @@ not required
 <details>
  <summary><code>POST</code> <code><b>/users/login</b></code> <code>(Login user)</code></summary>
 
-##### Authentication
+#### Authentication
 
 not required
 
-##### Parameters
+#### Parameters
 
 | name       | type     | data type | description          |
 |------------|----------|-----------|----------------------|
 | `email`    | required | string    | Email of the user    |
 | `password` | required | string    | Password of the user |
 
-##### Success Response
+#### Success Response
 
 - **Code**: `200 OK`
 - **Example Response Body**
@@ -89,11 +89,11 @@ not required
   ```
 - **Extra actions**: Adds a new JWT to the user's `tokens` data.
 
-##### Error Response
+#### Error Response
 
 - **Code**: `400 Bad Request`
 
-##### Example Request Body
+#### Example Request Body
 
 ```json
 {
@@ -107,20 +107,20 @@ not required
 <details>
  <summary><code>POST</code> <code><b>/users/logout</b></code> <code>(Log out of user's current session)</code></summary>
 
-##### Authentication
+#### Authentication
 
 JWT of the user's current session
 
-##### Parameters
+#### Parameters
 
 none
 
-##### Success Response
+#### Success Response
 
 - **Code**: `200 OK`
 - **Extra actions**: Removes the current JWT from the user's `tokens` data.
 
-##### Error Response
+#### Error Response
 
 - **Code**: `500 Internal Server Error`
 
