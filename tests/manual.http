@@ -9,7 +9,7 @@ content-type: application/json
 
 # use your real email to test for welcome mail sending
 {
-    "name": "Dou Mao",
+    "name": "Micky Mouse",
 	"email": "holiday@gmail.com",
 	"password": "rainbow543",
 	"age": 20
@@ -21,7 +21,7 @@ POST http://{{url}}/users/login HTTP/1.1
 content-type: application/json
 
 {
-	"email": "holiday@gmail.com",
+	"email": "Micky Mouse",
 	"password": "rainbow543"
 }
 
