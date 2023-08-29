@@ -1,5 +1,5 @@
 # MultiTask API
-All API access is over HTTPS from from `https://carly-task-manager.herokuapp.com`. All responses and requests are in JSON format.
+All API access is over HTTPS from from ~~`https://carly-task-manager.herokuapp.com`~~. All responses and requests are in JSON format.
 
 ## Users
 <details>
