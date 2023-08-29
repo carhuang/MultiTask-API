@@ -21,7 +21,7 @@ POST http://{{url}}/users/login HTTP/1.1
 content-type: application/json
 
 {
-	"email": "Micky Mouse",
+	"email": "holiday@gmail.com",
 	"password": "rainbow543"
 }
 
@@ -31,7 +31,26 @@ POST http://{{url}}/users/logout HTTP/1.1
 content-type: application/json
 authorization: Bearer {{authToken}}
 
-### Delete user
+### Logout user from all sessions
 @token = {{create.response.body.$.token}}
-DELETE http://{{url}}/users/me
+POST http://{{url}}/users/logoutAll HTTP/1.1
+content-type: application/json
 authorization: Bearer {{token}}
+
+### Get user profile information
+GET http://{{url}}/users/me HTTP/1.1
+authorization: Bearer {{authToken}}
+
+### Update user information
+PATCH http://{{url}}/users/me HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+{
+	"age": 55,
+	"name": "Wise Owl"
+}
+
+### Delete user
+DELETE http://{{url}}/users/me HTTP/1.1
+authorization: Bearer {{authToken}}
