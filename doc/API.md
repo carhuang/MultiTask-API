@@ -18,6 +18,17 @@ not required
 | `password` | required | string    | Password of the user |
 | `age`      | optional | int       | Age of the user      |
 
+#### Example Request Body
+
+```json
+{
+   "name": "Micky Mouse",
+	  "email": "holiday@gmail.com",
+	  "password": "rainbow543",
+   "age": 20
+}
+```
+
 #### Success Response
 
 - **Code**: `201 Created`
@@ -42,17 +53,6 @@ not required
 
 - **Code**: `400 Bad Request`
 
-#### Example Request Body
-
-```json
-{
-   "name": "Micky Mouse",
-	  "email": "holiday@gmail.com",
-	  "password": "rainbow543",
-   "age": 20
-}
-```
-
 </details>
 
 <details>
@@ -68,6 +68,15 @@ not required
 |------------|----------|-----------|----------------------|
 | `email`    | required | string    | Email of the user    |
 | `password` | required | string    | Password of the user |
+
+#### Example Request Body
+
+```json
+{
+	"email": "Micky Mouse",
+	"password": "rainbow543"
+}
+```
 
 #### Success Response
 
@@ -92,15 +101,6 @@ not required
 #### Error Response
 
 - **Code**: `400 Bad Request`
-
-#### Example Request Body
-
-```json
-{
-	"email": "Micky Mouse",
-	"password": "rainbow543"
-}
-```
 
 </details>
 
