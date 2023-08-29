@@ -44,7 +44,7 @@ router.get('/tasks', auth, async (req, res) => {
         }).execPopulate()
         res.send(req.user.tasks)
     } catch(e) {
-        res.status(500).send(e)
+        res.status(500).send()
     }
 
 })
@@ -55,7 +55,7 @@ router.get('/tasks/:id', auth, async (req, res) => {
         if (!task) return res.status(404).send()
         res.send(task)
     } catch(e) {
-        res.status(500).send(e)
+        res.status(500).send()
     }
 })
 
@@ -77,7 +77,7 @@ router.patch('/tasks/:id', auth, async (req, res) => {
         
         res.send(task)
     } catch(e) {
-        res.status(400).send(e)
+        res.status(500).send()
     }
 })
 

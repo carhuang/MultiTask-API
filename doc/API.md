@@ -326,3 +326,266 @@ none
 | `401 Unauthorized` | `{"error": "Please authenticate."}` |
 
 </details>
+
+<details>
+ <summary>👨 <code>GET</code> <code><b>/users/:id/avatar</b></code> <code>(Get profile picture by user ID)</code></summary>
+
+#### Authentication
+
+none
+
+#### Parameters
+
+none
+
+#### Success Response
+
+- **Code**: `200 OK`
+
+#### Error Response
+
+- **Code**: `404 Not Found`
+
+</details>
+
+## Tasks
+
+<details>
+ <summary>📝 <code>POST</code> <code><b>/tasks</b></code> <code>(Create a task)</code></summary>
+
+#### Authentication
+
+JWT of the user's current session
+
+#### Parameters
+
+| name          | type     | data type | description             |
+|---------------|----------|-----------|-------------------------|
+| `description` | required | string    | Description of the task |
+| `completed`   | optional | boolean   | Defaults to `false`     |
+
+#### Example Request Body
+
+```json
+{
+	"description": "write project proposal"
+}
+```
+
+#### Success Response
+
+- **Code**: `201 Created`
+- **Example Response Body**
+  ```json
+  {
+    "completed": false,
+    "_id": "64ee71eb6cdf76107ac1a8e7",
+    "description": "write project proposal",
+    "owner": "64ee3747db1ae3d03aded393",
+    "createdAt": "2023-08-29T22:32:11.875Z",
+    "updatedAt": "2023-08-29T22:32:11.875Z",
+    "__v": 0
+  }
+  ```
+
+#### Error Response
+
+| http code          | response body                       |
+|--------------------|-------------------------------------|
+| `400 Bad Request`  | none                                |
+| `401 Unauthorized` | `{"error": "Please authenticate."}` |
+
+</details>
+
+<details>
+ <summary>📝 <code>GET</code> <code><b>/tasks</b></code> <code>(Get tasks)</code></summary>
+
+#### Authentication
+
+JWT of the user's current session
+
+#### Query Parameters
+
+| name        | type     | data type | description                                                    |
+|-------------|----------|-----------|----------------------------------------------------------------|
+| `completed` | optional | boolean   | Defaults to `false`                                            |
+| `limit`     | optional | int       | Number of tasks to return                                      |
+| `skip`      | optional | int       | Exclude the first N tasks from the request                     |
+| `sortBy`    | optional | string    | Sorts the tasks by their properties and the specified ordering |
+
+
+#### Example Query Strings
+
+```javascript
+/tasks?completed=true&sortBy=createdAt:ascend
+/tasks?limit=10&skip=20
+/tasks?sortBy=createdAt:desc
+```
+
+#### Success Response
+
+- **Code**: `200 OK`
+- **Example Response Body**
+  ```json
+  [
+    {
+      "completed": false,
+      "_id": "64ee71eb6cdf76107ac1a8e7",
+      "description": "write project proposal",
+      "owner": "64ee3747db1ae3d03aded393",
+      "createdAt": "2023-08-29T22:32:11.875Z",
+      "updatedAt": "2023-08-29T22:32:11.875Z",
+      "__v": 0
+    },
+    {
+      "completed": false,
+      "_id": "64ee7c796cdf76107ac1a8ea",
+      "description": "stand up meeting",
+      "owner": "64ee3747db1ae3d03aded393",
+      "createdAt": "2023-08-29T23:17:13.826Z",
+      "updatedAt": "2023-08-29T23:17:13.826Z",
+      "__v": 0
+    },
+    {
+      "completed": true,
+      "_id": "64ee7c7e6cdf76107ac1a8ed",
+      "description": "rebase",
+      "owner": "64ee3747db1ae3d03aded393",
+      "createdAt": "2023-08-29T23:17:18.569Z",
+      "updatedAt": "2023-08-29T23:17:18.569Z",
+      "__v": 0
+    }
+  ]
+  ```
+
+#### Error Response
+
+| http code                   | response body                       |
+|-----------------------------|-------------------------------------|
+| `500 Internal Server Error` | none                                |
+| `401 Unauthorized`          | `{"error": "Please authenticate."}` |
+
+</details>
+
+<details>
+ <summary>📝 <code>GET</code> <code><b>/tasks/:id</b></code> <code>(Get task by task ID)</code></summary>
+
+#### Authentication
+
+JWT of the user's current session
+
+#### Parameters
+
+none
+
+#### Success Response
+
+- **Code**: `200 OK`
+- **Example Response Body**
+  ```json
+  {
+    "completed": false,
+    "_id": "64ee7c796cdf76107ac1a8ea",
+    "description": "stand up meeting",
+    "owner": "64ee3747db1ae3d03aded393",
+    "createdAt": "2023-08-29T23:17:13.826Z",
+    "updatedAt": "2023-08-29T23:17:13.826Z",
+    "__v": 0
+  }
+  ```
+
+#### Error Response
+
+| http code                   | response body                       |
+|-----------------------------|-------------------------------------|
+| `500 Internal Server Error` | none                                |
+| `404 Not Found`             | none                                |
+| `401 Unauthorized`          | `{"error": "Please authenticate."}` |
+
+</details>
+
+<details>
+ <summary>📝 <code>PATCH</code> <code><b>/tasks/:id</b></code> <code>(Update task by task ID)</code></summary>
+
+#### Authentication
+
+JWT of the user's current session
+
+#### Parameters
+
+| name          | type     | data type | description             |
+|---------------|----------|-----------|-------------------------|
+| `description` | optional | string    | Description of the task |
+| `completed`   | optional | boolean   | Completion of the task  |
+
+#### Example Request Body
+
+```json
+{
+	"completed": true
+}
+```
+
+#### Success Response
+
+- **Code**: `200 OK`
+- **Example Response Body**
+  ```json
+  {
+    "completed": true,
+    "_id": "64ee71eb6cdf76107ac1a8e7",
+    "description": "write project proposal",
+    "owner": "64ee3747db1ae3d03aded393",
+    "createdAt": "2023-08-29T22:32:11.875Z",
+    "updatedAt": "2023-08-29T23:38:17.535Z",
+    "__v": 0
+  }
+  ```
+
+#### Error Response
+
+| http code                   | response body                       |
+|-----------------------------|-------------------------------------|
+| `500 Internal Server Error` | none                                |
+| `404 Not Found`             | none                                |
+| `400 Bad Request`           | `{error: 'Invalid update}`          |
+| `401 Unauthorized`          | `{"error": "Please authenticate."}` |
+
+</details>
+
+<details>
+ <summary>📝 <code>DELETE</code> <code><b>/tasks/:id</b></code> <code>(Delete task by task ID)</code></summary>
+
+#### Authentication
+
+JWT of the user's current session
+
+#### Parameters
+
+none
+
+#### Success Response
+
+- **Code**: `200 OK`
+- **Example Response Body**
+  ```json
+  {
+    "completed": false,
+    "_id": "64ee7c7e6cdf76107ac1a8ed",
+    "description": "one-on-one meeting",
+    "owner": "64ee3747db1ae3d03aded393",
+    "createdAt": "2023-08-29T23:17:18.569Z",
+    "updatedAt": "2023-08-29T23:17:18.569Z",
+    "__v": 0
+  }
+  ```
+
+#### Error Response
+
+| http code                   | response body                       |
+|-----------------------------|-------------------------------------|
+| `500 Internal Server Error` | none                                |
+| `404 Not Found`             | none                                |
+| `401 Unauthorized`          | `{"error": "Please authenticate."}` |
+
+</details>

@@ -70,3 +70,37 @@ authorization: Bearer {{authToken}}
 ### Delete user
 DELETE http://{{url}}/users/me HTTP/1.1
 authorization: Bearer {{authToken}}
+
+### Create task
+POST http://{{url}}/tasks HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+# use your real email to test for welcome mail sending
+{
+    "description": "write project proposal"
+}
+
+### Get the user's tasks
+GET http://{{url}}/tasks?completed=false HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+### Get task by id
+GET http://{{url}}/tasks/64ee71eb6cdf76107ac1a8e7 HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+### Update task by id
+PATCH http://{{url}}/tasks/64ee71eb6cdf76107ac1a8e7 HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
+
+{
+	"completed": true
+}
+
+### Delete task by id
+DELETE http://{{url}}/tasks/64ee7c7e6cdf76107ac1a8ed HTTP/1.1
+content-type: application/json
+authorization: Bearer {{authToken}}
