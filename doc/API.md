@@ -3,7 +3,7 @@ All API access is over HTTPS from from ~~`https://carly-task-manager.herokuapp.c
 
 ## Users
 <details>
- <summary><code>POST</code> <code><b>/users</b></code> <code>(Signup/create a new user)</code></summary>
+ <summary><h3><code>POST</code> <code><b>/users</b></code> <code>(Signup/create a new user)</code></h3></summary>
 
 #### Authentication
 
@@ -288,7 +288,7 @@ JWT of the user's current session
 
 | name     | type     | data type | description                                           |
 |----------|----------|-----------|-------------------------------------------------------|
-| `avatar` | required | form-data | The link to the `.jpg`, `.jpeg`, or `.png` image file |
+| `avatar` | required | form-data | The link to a `.jpg`, `.jpeg`, or `.png` image file |
 
 #### Success Response
 
