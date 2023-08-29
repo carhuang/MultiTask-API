@@ -56,7 +56,7 @@ not required
 </details>
 
 <details>
- <summary><code>POST</code> <code><b>/users/login</b></code> <code>(Login user)</code></summary>
+ <summary>👉 <code>POST</code> <code><b>/users/login</b></code> <code>(Login user)</code></summary>
 
 #### Authentication
 
@@ -105,7 +105,7 @@ not required
 </details>
 
 <details>
- <summary><code>POST</code> <code><b>/users/logout</b></code> <code>(Log out of user's current session)</code></summary>
+ <summary>👉 <code>POST</code> <code><b>/users/logout</b></code> <code>(Log out of user's current session)</code></summary>
 
 #### Authentication
 
