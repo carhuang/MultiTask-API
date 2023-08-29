@@ -35,6 +35,13 @@ test('Should login existing user', async() => {
     expect(user.tokens[1].token).toBe(response.body.token)
 })
 
+test('Should not login wrong password', async() => {
+    const response = await request(app).post('/users/login').send({
+        email: userOne.email,
+        password: 'pasword123'
+    }).expect(400)
+})
+
 test('Should not login nonexistent user', async() => {
     await request(app).post('/users/login').send({
         email: 'quack@example.com',
@@ -57,23 +64,6 @@ test('Should not get profile for unauthenticated user', async() => {
         .expect(401)
 })
 
-test('Should delete account for user', async() => {
-    await request(app)
-        .delete('/users/me')
-        .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
-        .send()
-        .expect(200)
-    const user = await User.findById(userOneId)
-    expect(user).toBeNull()
-})
-
-test('Should not delete account for unauthenticated user', async() => {
-    await request(app)
-        .delete('/users/me')
-        .send()
-        .expect(401)
-})
-
 test('Should upload avatar image', async() => {
     await request(app)
         .post('/users/me/avatar')
@@ -82,6 +72,16 @@ test('Should upload avatar image', async() => {
         .expect(200)
     const user = await User.findById(userOneId)
     expect(user.avatar).toEqual(expect.any(Buffer))
+})
+
+test('Should delete avatar image', async() => {
+    await request(app)
+        .delete('/users/me/avatar')
+        .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
+        .send()
+        .expect(200)
+    const user = await User.findById(userOneId)
+    expect(user.avatar).toBeUndefined()
 })
 
 test('Should update valid user fields', async() => {
@@ -101,5 +101,22 @@ test('Should not update invalid user fields', async() => {
         .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
         .send({
             location: 'Columbia'
-        }).expect(400)
+        }).expect(403)
+})
+
+test('Should not delete account for unauthenticated user', async() => {
+    await request(app)
+        .delete('/users/me')
+        .send()
+        .expect(401)
+})
+
+test('Should delete account for user', async() => {
+    await request(app)
+        .delete('/users/me')
+        .set('Authorization', `Bearer ${userOne.tokens[0].token}`)
+        .send()
+        .expect(200)
+    const user = await User.findById(userOneId)
+    expect(user).toBeNull()
 })

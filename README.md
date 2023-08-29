@@ -42,7 +42,7 @@ $ mongosh
 ## Run Project Locally
 1. Install node modules
 ```
-$ npm ci
+$ npm install
 ```
 2. Sign up and get [EmailAPI key](https://app.sendgrid.com/guide/integrate/langs/nodejs) from [SendGrid](https://signup.sendgrid.com/)
 3. Create a new folder `/config` in the root folder and add a new file named `dev.env` into the folder. This folder is going to store the environment variables.
