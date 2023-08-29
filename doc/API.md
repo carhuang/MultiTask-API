@@ -1,5 +1,5 @@
 # MultiTask API
-All API access is over HTTPS from from ~~`https://carly-task-manager.herokuapp.com`~~. All responses and requests are in JSON format.
+All API access is over HTTPS from from ~~`https://carly-task-manager.herokuapp.com`~~. All responses and requests are in JSON format. Passwords are protected with `bcrypt` encryption.
 
 ## Users
 <details>
@@ -274,5 +274,55 @@ none
 |-----------------------------|-------------------------------------|
 | `500 Internal Server Error` | none                                |
 | `401 Unauthorized`          | `{"error": "Please authenticate."}` |
+
+</details>
+
+<details>
+ <summary><code>POST</code> <code><b>/users/me/avatar</b></code> <code>(Upload user profile picture)</code></summary>
+
+#### Authentication
+
+JWT of the user's current session
+
+#### Parameters
+
+| name     | type     | data type | description                                           |
+|----------|----------|-----------|-------------------------------------------------------|
+| `avatar` | required | form-data | The link to the `.jpg`, `.jpeg`, or `.png` image file |
+
+#### Success Response
+
+- **Code**: `200 OK`
+- **Action**: Resize the uploaded image and saves it to the user's `avatar` data.
+
+#### Error Response
+
+| http code          | response body                       |
+|--------------------|-------------------------------------|
+| `400 Bad Request`  | `{"error": <error message>}`        |
+| `401 Unauthorized` | `{"error": "Please authenticate."}` |
+
+</details>
+
+<details>
+ <summary><code>DELETE</code> <code><b>/users/me/avatar</b></code> <code>(Delete user profile picture)</code></summary>
+
+#### Authentication
+
+JWT of the user's current session
+
+#### Parameters
+
+none
+
+#### Success Response
+
+- **Code**: `200 OK`
+
+#### Error Response
+
+| http code          | response body                       |
+|--------------------|-------------------------------------|
+| `401 Unauthorized` | `{"error": "Please authenticate."}` |
 
 </details>

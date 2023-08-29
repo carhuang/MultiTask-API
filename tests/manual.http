@@ -51,6 +51,22 @@ authorization: Bearer {{authToken}}
 	"name": "Wise Owl"
 }
 
+### Upload profile picture
+POST http://{{url}}/users/me/avatar HTTP/1.1
+content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+authorization: Bearer {{authToken}}
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition:: form-data, name="avatar", filename="profile-pic.jpg"
+Content-Type: image/jpg
+
+< ./profile-pic.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+### Delete profile picture
+DELETE http://{{url}}/users/me/avatar HTTP/1.1
+authorization: Bearer {{authToken}}
+
 ### Delete user
 DELETE http://{{url}}/users/me HTTP/1.1
 authorization: Bearer {{authToken}}
