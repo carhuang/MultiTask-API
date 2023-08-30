@@ -1,5 +1,5 @@
 # MultiTask API
-All API access is over HTTPS from ~~`https://carly-task-manager.herokuapp.com`~~. All responses and requests are in JSON format. Passwords are protected with `bcrypt` encryption, and user authentication is handled with JSON Web Token(JWT).
+All API access is over HTTPS from ~~`https://carly-task-manager.herokuapp.com`~~. All responses and requests are in JSON format. Passwords are protected with `bcrypt` encryption, and user authentication is handled with JSON Web Token (JWT).
 
 ## Users
 <details>
