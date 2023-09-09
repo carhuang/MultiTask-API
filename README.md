@@ -93,17 +93,17 @@ The files `.dockerignore`, `Dockerfile`, and `compose.yaml` are used to create D
 1.  Change `MONGODB_URL` in `dev.env` and `test.env` to `mongodb://mngo:27017/task-manager-api` and `mongodb://mongo:27017/task-manager-api-test`.
 2.  Run `$ docker compose up -d` in the `/Multitask` project directory to run the web and mongo services in detached mode.
 3.  You can then run the Jest tests inside the Docker container by:
-```
-$ docker ps
-```
-to see the list of current running Docker containers.
-```
-$ docker exec -it <CONTAINER ID OF multitask-api-web> bash
-```
-to run commands in the multitask-api-web container.
-```
-$ npm test
-```
-to execute the Jest test suites inside the multitask-api-web container.
+    ```
+    $ docker ps
+    ```
+    to see the list of current running Docker containers.
+    ```
+    $ docker exec -it <CONTAINER ID OF multitask-api-web> bash
+    ```
+    to run commands in the multitask-api-web container.
+    ```
+    $ npm test
+    ```
+   to execute the Jest test suites inside the multitask-api-web container.
 4. Stop the running services with `$ docker compose down`.
 5. If code has been changed, run `$ docker compose build --no-cache` to rebuild the Docker image. Use `$ docker rmi <docker image id>` to remove unwanted Docker images.
