@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    restart: always
+    build: .
+    ports:
+      - "80:8000"
+    links:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"

@@ -56,7 +56,7 @@ PORT=3000
 SENDGRID_API_KEY=<Your email API key from step #2>
 JWT_SECRET=<Your JWT secret key>
 MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api
-EMAIL=<Your email address>
+EMAIL=<Your verified SendGrid sender email address>
 ```
 6. Run the app. Make sure MongoDB is up and running as well.
 ```
@@ -65,13 +65,14 @@ $ npm run dev
 
 
 ## Run Jest Unit Tests
-1. Create a new file `test.env` in the `/config` folder. The content would be the same as the content in `dev.env` but with one change for the variable `MONGODB_URL` to create a separate test database.
+1. Create a new file `test.env` in the `/config` folder. The content would be the same as the content in `dev.env` but with a different variable `MONGODB_URL` to create a separate test database and an additional variable `USER_EMAIL` to test email sending with SendGrid.
 ```
 PORT=3000
 SENDGRID_API_KEY=<Your email API key from step #2>
 JWT_SECRET=<Your JWT secret key>
 MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api-test
-EMAIL=<Your email address>
+EMAIL=<Your verified SendGrid sender email address>
+USER_EMAIL=<Another email address for receieving welcome/goodbye emails>
 ```
 2. Run tests in the `/tests` folder
 ```
@@ -85,3 +86,22 @@ Read the REST Client [user guide](https://github.com/Huachao/vscode-restclient) 
 
 ## Test app with Postman
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a1ed895918d6bb7f0687)
+
+
+## Run Project in Docker
+The files `.dockerignore`, `Dockerfile`, and `compose.yaml` are used to create Docker containers for this app. You will need to install Docker in your computer system.
+1.  Change `MONGODB_URL` in `dev.env` and `test.env` to `mongodb://mngo:27017/task-manager-api` and `mongodb://mongo:27017/task-manager-api-test`.
+2.  Run `$ docker compose up -d` in the `/Multitask` project directory to run the web and mongo services.
+3.  You can then run the Jest tests inside the Docker container by:
+```
+$ docker ps
+```
+to see the list of current running Docker containers.
+```
+$ docker exec -it <CONTAINER ID OF multitask-api-web> bash
+```
+to run commands in the multitask-api-web container.
+```
+$ npm test
+```
+to execute the Jest test suites inside the multitask-api-web container.
