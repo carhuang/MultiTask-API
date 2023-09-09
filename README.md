@@ -104,6 +104,7 @@ The files `.dockerignore`, `Dockerfile`, and `compose.yaml` are used to create D
     ```
     $ npm test
     ```
-   to execute the Jest test suites inside the multitask-api-web container.
+    to execute the Jest test suites inside the multitask-api-web container.
+
 4. Stop the running services with `$ docker compose down`.
 5. If code has been changed, run `$ docker compose build --no-cache` to rebuild the Docker image. Use `$ docker rmi <docker image id>` to remove unwanted Docker images.
